@@ -2,8 +2,8 @@
 
 int main()
 {
-  int stack[256];
-  char buf[256];
+  int st[256];
+  char b[256];
   int sp = 0;
   
   printf("Sample:\n2 3 + =\nResult = 5\n");
@@ -11,33 +11,33 @@ int main()
   {
     if(scanf ("%s", buf) != 1 )
       break;
-      switch(buf[0])
+      switch(b[0])
       {
         case '\0':
           break;
         case '=':
-          printf("Result = %d\n", stack[--sp]);
+          printf("Result = %d\n", st[--sp]);
           break;
         case '+':
-          stack[sp-2] = stack[sp-2] + stack[sp-1];
+          st[sp-2] = st[sp-2] + st[sp-1];
           sp--;
           break;
         case '-':
-          stack[sp-2] = stack[sp-2] - stack[sp-1];
+          st[sp-2] = st[sp-2] - st[sp-1];
           sp--;
           break;
         case '*':
-          stack[sp-2] = stack[sp-1] * stack[sp-2];
+          st[sp-2] = st[sp-1] * st[sp-2];
           sp--;
           break;
         case '/':
-          stack[sp-2] = stack[sp-1] / stack[sp-2];
+          st[sp-2] = st[sp-1] / st[sp-2];
           sp--;
           break;
         default:
-            stack[sp++] = atoi(buf);
+            st[sp++] = atoi(buf);
       }
     }
-    printf("Result = %d\n",stack[sp-1]);
+    printf("Result = %d\n",st[sp-1]);
     return 0;
 }
